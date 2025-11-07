@@ -53,4 +53,73 @@ fun HalamanFormulir(
                     containerColor = colorResource(id = R.color.teal_700)
                 )
             )
-        }}
+        }
+    ) { isiRuang ->
+        Column(
+            modifier = modifier
+                .padding(isiRuang)
+                .padding(16.dp),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.Start
+        ) {
+            // --- NAMA LENGKAP ---
+            OutlinedTextField(
+                value = uiState.nama,
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text(text = "Nama Lengkap") },
+                onValueChange = onNamaChange
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // --- JENIS KELAMIN ---
+            Text(text = "JENIS KELAMIN")
+            Row {
+                jenisKelaminList.forEach { item ->
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        RadioButton(
+                            selected = uiState.jenisKelamin == item,
+                            onClick = { onJenisKelaminSelect(item) }
+                        )
+                        Text(text = item)
+                        Spacer(modifier = Modifier.width(16.dp))
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // --- STATUS PERKAWINAN (BARU) ---
+            Text(text = "STATUS PERKAWINAN")
+            Column { // Gunakan Column agar radio button rapi ke bawah
+                statusList.forEach { item ->
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        RadioButton(
+                            selected = uiState.status == item,
+                            onClick = { onStatusSelect(item) }
+                        )
+                        Text(text = item)
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // --- ALAMAT ---
+            OutlinedTextField(
+                value = uiState.alamat,
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text(text = "Alamat") },
+                onValueChange = onAlamatChange,
+            )
+            Spacer(modifier = Modifier.height(30.dp))
+
+            // --- TOMBOL SUBMIT ---
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = OnSubmitBtnClick
+            ) {
+                Text(text = stringResource(id = R.string.submit))
+            }
+        }
+    }
+}
