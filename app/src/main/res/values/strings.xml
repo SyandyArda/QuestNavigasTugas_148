@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">TugasNavigasi</string>
+    <string name="app_name">Praktikum5</string>
+    <string name="submit">Submit</string>
+    <string name="back">Back</string>
+    <string name="nama_lengkap">NAMA LENGKAP</string>
+    <string name="jenis_kelamin">JENIS KELAMIN</string>
+    <string name="alamat">ALAMAT</string>
+    <string name="tampil">List Daftar Peserta</string> <string name="home">Formulir Pendaftaran</string> <string name="status_perkawinan">STATUS PERKAWINAN</string>
+    <string name="beranda">Beranda</string>
+    <string name="formulir_pendaftaran">Formulir Pendaftaran</string>
 </resources>
