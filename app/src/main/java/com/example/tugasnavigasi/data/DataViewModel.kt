@@ -1,4 +1,4 @@
-package com.example.tugasnavigasi
+package com.example.tugasnavigasi.data
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
