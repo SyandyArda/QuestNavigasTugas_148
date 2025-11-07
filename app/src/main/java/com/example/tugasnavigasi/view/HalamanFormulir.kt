@@ -25,3 +25,32 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.tugasnavigasi.R
 import com.example.tugasnavigasi.data.CobaUiState
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun HalamanFormulir(
+    uiState: CobaUiState,
+    onNamaChange: (String) -> Unit,
+    onAlamatChange: (String) -> Unit,
+    onJenisKelaminSelect: (String) -> Unit,
+    onStatusSelect: (String) -> Unit,
+    OnSubmitBtnClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val jenisKelaminList = listOf("Laki-laki", "Perempuan")
+    val statusList = listOf("Janda", "Duda", "Lajang")
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(
+                        text = stringResource(id = R.string.home), // "Formulir Pendaftaran"
+                        color = Color.White
+                    )
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = colorResource(id = R.color.teal_700)
+                )
+            )
+        }}
